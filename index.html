@@ -17,6 +17,8 @@
 	<body ng-app="ciberApp" ng-controller="ciberCtrl">
 		<!-- IE8 compatible AngularJS 1.2 -->
 		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="bower_components/angular-messages/angular-messages.js"></script>
+		<script type="text/javascript" src="bower_components/angularjs-modal-service/src/createDialog.js"></script>
 		<script type="text/javascript" src="js/site.js"></script>
 		<div id="main" class="fixedWidth">
 			<div id="header">
@@ -31,11 +33,11 @@
 				<div class="grid">
 					<div class="grid__col grid__col--1-of-4 grid__col--s-1-of-1" id="sidebarParent">
 						<div id="sidebar" class="box">
-							<a href="#">Efficacy</a>
-							<a href="#" class="pdf">Summary of Product Characteristics</a>
-							<a href="#">Safety Information</a>
-							<a href="#"><b>Administration</b></a>
-							<a href="#" class="pdf">Press Release</a>
+							<a ng-click="linkClick()" href="#">Efficacy</a>
+							<a ng-click="linkClick()" href="#" class="pdf">Summary of Product Characteristics</a>
+							<a ng-click="linkClick()" href="#">Safety Information</a>
+							<a ng-click="linkClick()" href="#"><b>Administration</b></a>
+							<a ng-click="linkClick()" href="#" class="pdf">Press Release</a>
 						</div>
 					</div>
 					<div class="grid__col grid__col--3-of-4 grid__col--s-1-of-1" class="shadowParent" id="mainContent">
@@ -53,25 +55,48 @@
 										<p>EYLEA may be dosed as frequently as once per month (4 weeks).</p>
 										<p><sup>a</sup>Following 3 initial monthly treatments.</p>
 										<br>
-										<p>Please read the <a href="#">Summary of Product Characteristics</a>.</p>
+										<p>Please read the <a ng-click="linkClick()" href="#">Summary of Product Characteristics</a>.</p>
 									</div>
 								</div>
 								<p>If you are interested in further information on EYLEAadministration, or if you have feedback regarding this site, then please contact us using this form. Fields marked * are required.</p>
 								<p>Please fill out the fields below.</p>
-								<form action="#" method="post">
+								<form action="save.php" method="post" ng-submit="submitContact(contactForm.$valid)" name="contactForm" novalidate>
 									<table id="form">
 										<tbody>
 											<tr>
 												<td style="width:100px;">E-mail*</td>
-												<td><input type="email" /></td>
+												<td>
+													<input type="email" name="email" ng-model="email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-maxlength="100" />
+													<div class="error" ng-messages="contactForm.email.$error" ng-show="contactForm.email.$untouched">
+														<p ng-message="maxlength">Your email ID is longer than 100 characters.</p>
+														<p ng-message="required">Your email ID is required.</p>
+													</div>
+												</td>
 											</tr>
 											<tr>
 												<td>Subject</td>
-												<td><input type="text" /></td>
+												<td>
+													<input type="text" name="subject" ng-model="subject" ng-maxlength="100"/>
+													<div class="error" ng-messages="contactForm.subject.$error" ng-show="contactForm.subject.$touched">
+														<p ng-message="maxlength">The Subject is longer than 100 characters.</p>
+													</div>
+												</td>
 											</tr>
 											<tr>
-												<td valign="top">Message*</td>
-												<td><textarea style="height:60px"></textarea></td>
+												<td valign="top" ng-model="message">Message*</td>
+												<td>
+													<textarea  name="message" style="height:60px" ng-maxlength="255" required></textarea>
+													<div class="error" ng-messages="contactForm.message.$error" ng-show="contactForm.message.$touched">
+														<p ng-message="maxlength">Your message is longer than 255 characters.</p>
+														<p ng-message="required">A message is required.</p>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td>
+													<input type='submit' ng-disabled="contactForm.$invalid" id="submit" name='submit' value=''>
+												</td>
 											</tr>
 										</tbody>
 									</table>
@@ -89,19 +114,19 @@
 					<div class="grid__col grid__col--3-of-4 grid__col--s-1-of-1">
 						<div class="grid">
 							<div class="grid__col grid__col--1-of-3 grid__col--s-1-of-1">
-								<a href="#">Bayer Global</a>
-								<a href="#">Bayer HealthCare</a>
-								<a href="#">Bayer Pharma</a>
+								<a ng-click="linkClick()" href="#">Bayer Global</a>
+								<a ng-click="linkClick()" href="#">Bayer HealthCare</a>
+								<a ng-click="linkClick()" href="#">Bayer Pharma</a>
 							</div>
 							<div class="grid__col grid__col--1-of-3 grid__col--s-1-of-1">
-								<a href="#">Imprint</a>
-								<a href="#">Conditions of Use</a>
-								<a href="#">Privacy Statement</a>
+								<a ng-click="linkClick()" href="#">Imprint</a>
+								<a ng-click="linkClick()" href="#">Conditions of Use</a>
+								<a ng-click="linkClick()" href="#">Privacy Statement</a>
 							</div>
 							<div class="grid__col grid__col--1-of-3 grid__col--s-1-of-1">
-								<a href="#">EYLEA Portal</a>
-								<a href="#">Summary of Product Characteristics</a>
-								<a href="#">References</a>
+								<a ng-click="linkClick()" href="#">EYLEA Portal</a>
+								<a ng-click="linkClick()" href="#">Summary of Product Characteristics</a>
+								<a ng-click="linkClick()" href="#">References</a>
 							</div>
 						</div>
 					</div>

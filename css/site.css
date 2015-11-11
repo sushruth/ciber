@@ -162,3 +162,17 @@ input, textarea {
 	display:block;
 	padding:8px 15px;
 }
+
+#submit {
+	background:url(../img/submit.gif) no-repeat left top;
+	width:102px;
+	height:33px;
+	display: inline-block;
+	border: 0;
+}
+
+.error {
+	font-size:10px;
+	flot:right;
+	color:red;
+}
