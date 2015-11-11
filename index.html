@@ -67,7 +67,7 @@
 												<td style="width:100px;">E-mail*</td>
 												<td>
 													<input type="email" name="email" ng-model="email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-maxlength="100" />
-													<div class="error" ng-messages="contactForm.email.$error" ng-show="contactForm.email.$untouched">
+													<div class="error" ng-messages="contactForm.email.$error">
 														<p ng-message="maxlength">Your email ID is longer than 100 characters.</p>
 														<p ng-message="required">Your email ID is required.</p>
 													</div>
@@ -77,7 +77,7 @@
 												<td>Subject</td>
 												<td>
 													<input type="text" name="subject" ng-model="subject" ng-maxlength="100"/>
-													<div class="error" ng-messages="contactForm.subject.$error" ng-show="contactForm.subject.$touched">
+													<div class="error" ng-messages="contactForm.subject.$error">
 														<p ng-message="maxlength">The Subject is longer than 100 characters.</p>
 													</div>
 												</td>
@@ -86,7 +86,7 @@
 												<td valign="top" ng-model="message">Message*</td>
 												<td>
 													<textarea  name="message" style="height:60px" ng-maxlength="255" required></textarea>
-													<div class="error" ng-messages="contactForm.message.$error" ng-show="contactForm.message.$touched">
+													<div class="error" ng-messages="contactForm.message.$error">
 														<p ng-message="maxlength">Your message is longer than 255 characters.</p>
 														<p ng-message="required">A message is required.</p>
 													</div>
