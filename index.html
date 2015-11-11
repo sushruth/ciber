@@ -3,15 +3,115 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Ciber template</title>
-
-		<!-- Every developer's nightmare :  -->
+		<!-- Every front end web developer's pain :  -->
 		<!--[if lt IE 9]>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
 		<script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
 		<script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
 		<![endif]-->
+		<!-- IE8 compatible grid system :: https://github.com/daneden/toast -->
+		<link rel="stylesheet" type="text/css" href="bower_components/toast/css/grid.css">
+		<link rel="stylesheet" type="text/css" href="css/site.css">
 	</head>
-	<body>
+	<body ng-app="ciberApp" ng-controller="ciberCtrl">
+		<!-- IE8 compatible AngularJS 1.2 -->
+		<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="js/site.js"></script>
+		<div id="main" class="fixedWidth">
+			<div id="header">
+				<img src="img/eylea.gif" height="64" width="225" id="eylea">
+				<img src="img/bayer.gif" height="60" width="60" id="bayer">
+			</div>
+			<div id="heading">
+				<span>EYLEA<sup>&reg;</sup> (afibercept solution for injection)</span>
+				<h1>Once every 2 months<sup style="font-size:20px">a</sup> dosage regimen for treatment <br> of wet age-related macular degeneration (AMD)</h1>
+			</div>
+			<div id="body">
+				<div class="grid">
+					<div class="grid__col grid__col--1-of-4 grid__col--s-1-of-1" id="sidebarParent">
+						<div id="sidebar" class="box">
+							<a href="#">Efficacy</a>
+							<a href="#" class="pdf">Summary of Product Characteristics</a>
+							<a href="#">Safety Information</a>
+							<a href="#"><b>Administration</b></a>
+							<a href="#" class="pdf">Press Release</a>
+						</div>
+					</div>
+					<div class="grid__col grid__col--3-of-4 grid__col--s-1-of-1" class="shadowParent" id="mainContent">
+						<div class="grid__col--1-of-1" style="position:relative">
+							<div class="shadow grid__col--1-of-1"></div>
+							<div class="box" id="content">
+								<p>The recommended dose of EYLEA is 2 mg (equivalent to 50 microliters solution for injection).</p>
+								<p>EYLEA treatment is initiated with 1 injection per month (every 4 weeks) for 3 consecutive doses, followed by 1 injection every 2 months (8 weeks). There is no requirement for monitoring between injections.</p>
+								<div class="grid" style="margin:30px 0;">
+									<div class="grid__col grid__col--1-of-2 grid__col--s-1-of-1">
+										<img src="img/articleImage.jpg" height="205" width="321">
+									</div>
+									<div class="grid__col grid__col--1-of-2 grid__col--s-1-of-1">
+										<p>Long term (after the first 12 months of treatment), it is recommended that patients continue to be treated with EYLEA every 2 months (8 weeks). However, after the first 12 months of treatment with EYLEA, the treatment interval could be extended up to every 3 months (12 weeks) based on visual and anatomic outcomes.</p>
+										<p>EYLEA may be dosed as frequently as once per month (4 weeks).</p>
+										<p><sup>a</sup>Following 3 initial monthly treatments.</p>
+										<br>
+										<p>Please read the <a href="#">Summary of Product Characteristics</a>.</p>
+									</div>
+								</div>
+								<p>If you are interested in further information on EYLEAadministration, or if you have feedback regarding this site, then please contact us using this form. Fields marked * are required.</p>
+								<p>Please fill out the fields below.</p>
+								<form action="#" method="post">
+									<table id="form">
+										<tbody>
+											<tr>
+												<td style="width:100px;">E-mail*</td>
+												<td><input type="email" /></td>
+											</tr>
+											<tr>
+												<td>Subject</td>
+												<td><input type="text" /></td>
+											</tr>
+											<tr>
+												<td valign="top">Message*</td>
+												<td><textarea style="height:60px"></textarea></td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footerTop"><sup>1</sup>Data on file. EYLEA Expanded Company Core Data Sheet (CCDS). Version 5. February 14, 2012. Bayer HealthCare, Regeneron.</div>
+		</div>
+		<div id="footer">
+			<div class="fixedWidth">
+				<div class="grid" style="padding-right:70px;">
+					<div class="grid__col grid__col--3-of-4 grid__col--s-1-of-1">
+						<div class="grid">
+							<div class="grid__col grid__col--1-of-3 grid__col--s-1-of-1">
+								<a href="#">Bayer Global</a>
+								<a href="#">Bayer HealthCare</a>
+								<a href="#">Bayer Pharma</a>
+							</div>
+							<div class="grid__col grid__col--1-of-3 grid__col--s-1-of-1">
+								<a href="#">Imprint</a>
+								<a href="#">Conditions of Use</a>
+								<a href="#">Privacy Statement</a>
+							</div>
+							<div class="grid__col grid__col--1-of-3 grid__col--s-1-of-1">
+								<a href="#">EYLEA Portal</a>
+								<a href="#">Summary of Product Characteristics</a>
+								<a href="#">References</a>
+							</div>
+						</div>
+					</div>
+					<div class="grid__col grid__col--1-of-4 grid__col--s-1-of-1">
+						<p>&copy; 2015 Bayer Pharma AG.
+						This website contains information on EYLEA (aflibercept) which is based on the Summary of Product Characteristics (SPC) as approved by the European Commission. It is intended to provide information to an international audience outside the USA and UK.</p>
+						<p>Last updated on 12/12/2015.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
